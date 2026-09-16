@@ -1,0 +1,688 @@
+:root{
+  --bg:#f5f5f1;
+  --surface:#ecece6;
+  --surface-2:#e4e4dd;
+  --text:#111214;
+  --muted:#74746d;
+  --line:#d3d3cb;
+  --accent:#315cff;
+  --orange:#ff6b22;
+  --max:1320px;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:-apple-system,BlinkMacSystemFont,"Helvetica Neue",Arial,sans-serif;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+img{display:block;width:100%;height:100%;object-fit:cover}
+.shell{width:min(calc(100% - 56px),var(--max));margin:0 auto}
+.microLabel,.eyebrow{text-transform:uppercase;letter-spacing:.15em;font-size:10px;color:var(--muted);margin:0}
+
+/* navigation */
+.siteNav{position:sticky;top:0;z-index:50;background:rgba(245,245,241,.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--line)}
+.navInner{min-height:68px;display:flex;align-items:center;justify-content:space-between;gap:28px}
+.brand{font-size:13px;font-weight:700;letter-spacing:-.02em}
+.navLinks{display:flex;gap:26px;align-items:center;white-space:nowrap;overflow-x:auto;scrollbar-width:none}
+.navLinks::-webkit-scrollbar{display:none}
+.navLinks a{font-size:12px;color:var(--muted);transition:color .18s ease}
+.navLinks a:hover{color:var(--text)}
+
+/* hero */
+.homeHero{min-height:calc(100vh - 68px);display:grid;grid-template-columns:minmax(0,1.15fr) minmax(360px,.72fr);gap:7vw;align-items:center;padding:72px 0 78px}
+.heroMain{max-width:780px}
+.heroKicker{font-size:20px;color:var(--muted);margin:0 0 16px}
+.homeHero h1{font-size:clamp(74px,9.4vw,142px);line-height:.82;letter-spacing:-.078em;font-weight:520;margin:0 0 38px}
+.heroDot{color:var(--accent)}
+.heroIdentity{font-size:14px;line-height:1.55;margin:0 0 14px;max-width:660px}
+.heroStatement{font-size:21px;line-height:1.5;letter-spacing:-.02em;color:var(--muted);max-width:690px;margin:0}
+.heroActions{display:flex;gap:28px;margin-top:36px}
+.heroActions a{font-size:12px;border-bottom:1px solid var(--text);padding-bottom:7px;display:flex;gap:26px;transition:gap .2s ease}
+.heroActions a:hover{gap:34px}
+.heroTags{display:flex;flex-wrap:wrap;gap:8px;margin-top:42px}
+.heroTags span{font-size:9px;text-transform:uppercase;letter-spacing:.12em;border:1px solid var(--line);padding:8px 10px;border-radius:999px;color:var(--muted)}
+.heroPortrait{height:min(74vh,720px);margin:0;position:relative;background:#111;overflow:hidden}
+.heroPortrait img{object-position:47% center;transition:transform .7s ease}
+.heroPortrait:hover img{transform:scale(1.018)}
+.heroPortrait:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(0,0,0,.72))}
+.heroPortrait figcaption{position:absolute;z-index:2;left:22px;right:22px;bottom:20px;color:#fff;display:flex;justify-content:space-between;align-items:end;gap:18px}
+.heroPortrait figcaption span{font-size:9px;letter-spacing:.14em;text-transform:uppercase;color:#c7c7c7}
+.heroPortrait figcaption strong{font-size:14px;font-weight:500}
+
+/* sections */
+.contentSection,.contactSection{padding:116px 0;border-top:1px solid var(--line)}
+.sectionTitleRow{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:58px}
+.sectionTitleRow h2,.outsideHeader h2{font-size:clamp(48px,6vw,82px);line-height:.92;letter-spacing:-.06em;font-weight:520;margin:13px 0 0}
+.sectionNote{font-size:12px;line-height:1.5;color:var(--muted);max-width:330px;text-align:right;margin:0}
+
+/* experience */
+.experienceCards{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.experienceCard{display:block;background:var(--surface);overflow:hidden}
+.experienceImage{height:390px;position:relative;overflow:hidden;background:#deded8}
+.experienceImage>img{transition:transform .55s ease}
+.experienceCard:hover .experienceImage>img{transform:scale(1.025)}
+.experienceImageDark:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,0,0,.05),rgba(0,0,0,.55))}
+.experienceLogo{position:absolute;left:20px;bottom:18px;z-index:2;color:#fff}
+.textLogo{font-size:15px;font-weight:800;letter-spacing:.16em}
+.kiteLabVisual{background:#dfe6ea}
+.kiteLabMain{width:70%;height:100%;object-fit:cover;object-position:center}
+.kiteLabInset{position:absolute;right:18px;bottom:18px;width:39%;height:47%;border:7px solid var(--surface);object-fit:cover}
+.kiteLogoBadge{position:absolute;right:18px;top:18px;background:#fff;width:190px;height:72px;padding:14px 16px;display:flex;align-items:center;box-shadow:0 8px 25px rgba(0,0,0,.08)}
+.kiteLogoBadge img{object-fit:contain}
+.experienceInfo{padding:22px;display:grid;grid-template-columns:112px 1fr;gap:20px 24px}
+.experienceTime{font-size:9px;letter-spacing:.1em;color:var(--muted);margin:4px 0}
+.experienceInfo h3{font-size:23px;font-weight:520;letter-spacing:-.035em;margin:0 0 6px}
+.experienceOrg{font-size:12px;color:var(--muted);margin:0}
+.experienceSummary{grid-column:2;font-size:13px;line-height:1.65;color:var(--muted);margin:0;max-width:520px}
+
+/* projects */
+.projectList{border-top:1px solid var(--line)}
+.projectRow{display:grid;grid-template-columns:55px 260px 1fr 30px;gap:24px;align-items:center;padding:19px 0;border-bottom:1px solid var(--line);transition:padding .22s ease}
+.projectRow:hover{padding-left:8px}
+.projectRowNumber,.projectYear{font-size:9px;letter-spacing:.12em;color:var(--muted)}
+.projectRowImage{height:160px;background:var(--surface);overflow:hidden}
+.projectRowImage img{object-fit:contain;padding:9px;mix-blend-mode:multiply;transition:transform .35s ease}
+.projectRow:nth-child(2) .projectRowImage img{object-fit:cover;padding:0;mix-blend-mode:normal}
+.projectRow:hover .projectRowImage img{transform:scale(1.03)}
+.projectRowCopy h3{font-size:clamp(28px,3.3vw,48px);font-weight:500;letter-spacing:-.05em;margin:8px 0 10px}
+.projectRowCopy>p:last-child{font-size:12px;color:var(--muted);line-height:1.55;margin:0;max-width:650px}
+.projectArrow{justify-self:end;font-size:17px;transition:transform .18s ease}
+.projectRow:hover .projectArrow{transform:translate(3px,-3px)}
+
+/* certificates */
+.certificateEmpty{min-height:205px;border:1px dashed #c6c6bd;display:flex;align-items:flex-end;justify-content:space-between;gap:30px;padding:25px}
+.certificateEmpty p{font-size:34px;letter-spacing:-.045em;margin:0}
+.certificateEmpty span{font-size:12px;line-height:1.55;color:var(--muted);max-width:470px}
+
+/* skills */
+.skillsCapabilityGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--line);border:1px solid var(--line)}
+.skillsCapabilityGrid article{min-height:265px;padding:24px;background:var(--bg);display:flex;flex-direction:column}
+.skillsCapabilityGrid h3{font-size:28px;line-height:1.03;letter-spacing:-.045em;font-weight:520;margin:auto 0 16px}
+.skillsCapabilityGrid article>p:last-child{font-size:12px;line-height:1.62;color:var(--muted);margin:0}
+.skillsCapabilityGrid .skillsEvidence{background:#171819;color:#f4f4ef}
+.skillsCapabilityGrid .skillsEvidence .microLabel,.skillsCapabilityGrid .skillsEvidence p:last-child{color:#a9a9a3}
+
+/* outside engineering */
+.outsideSection{background:#0f1011;color:#f2f2ed;padding:116px 0 0;overflow:hidden}
+.outsideSection .microLabel{color:#92938f}
+.outsideHeader{display:flex;justify-content:space-between;align-items:end;gap:40px;margin-bottom:54px}
+.outsideHeader>p{max-width:340px;text-align:right;color:#989994;font-size:13px;line-height:1.6;margin:0}
+.outsideStage{display:grid;grid-template-columns:1.16fr .84fr;gap:16px}
+.outsideMusicHero{height:690px;margin:0;position:relative;overflow:hidden;background:#050505}
+.outsideMusicHero img{object-position:center 35%}
+.outsideMusicHero:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 52%,rgba(0,0,0,.82))}
+.outsideMusicHero figcaption{position:absolute;z-index:2;inset:auto 24px 24px;display:flex;justify-content:space-between;align-items:end}
+.outsideMusicHero figcaption span{font-size:9px;letter-spacing:.16em;color:#aaa;text-transform:uppercase}
+.outsideMusicHero figcaption strong{font-size:clamp(54px,6vw,90px);line-height:.82;letter-spacing:-.07em;font-weight:550}
+.outsideSide{display:grid;grid-template-columns:1fr 1fr;grid-template-rows:1.15fr .85fr;gap:16px}
+.basketballCard{grid-column:1/-1;background:var(--orange);color:#111;min-height:360px;position:relative;padding:24px;overflow:hidden;display:flex;flex-direction:column}
+.basketballCard .microLabel{color:rgba(0,0,0,.6)}
+.basketballCard h3{font-size:64px;line-height:.9;letter-spacing:-.06em;font-weight:550;margin:auto 0 14px;position:relative;z-index:2}
+.basketballCard p:last-of-type{font-size:12px;line-height:1.6;max-width:440px;margin:0;position:relative;z-index:2}
+.scoreMark{position:absolute;right:14px;bottom:-34px;font-size:170px;line-height:1;font-weight:800;letter-spacing:-.1em;color:rgba(0,0,0,.1)}
+.courtGraphic{position:absolute;right:-40px;top:-55px;width:330px;height:330px;border:3px solid rgba(0,0,0,.18);border-radius:50%}
+.courtCircle{position:absolute;width:90px;height:90px;border:3px solid rgba(0,0,0,.18);border-radius:50%;left:90px;top:117px}
+.courtArc{position:absolute;width:125px;height:210px;border:3px solid rgba(0,0,0,.18);border-left:0;border-radius:0 180px 180px 0;left:0;top:55px}
+.outsideTextCard{background:#1a1b1c;min-height:310px;padding:22px;display:flex;flex-direction:column}
+.outsideTextCard h3{font-size:31px;line-height:1;letter-spacing:-.045em;font-weight:500;margin:auto 0 15px}
+.outsideTextCard>p:last-child{font-size:12px;line-height:1.6;color:#9fa09a;margin:0}
+.outsideTicker{margin-top:76px;border-top:1px solid #2d2e2e;border-bottom:1px solid #2d2e2e;padding:17px 0;display:flex;white-space:nowrap;overflow:hidden;color:#6f706d;font-size:11px;letter-spacing:.16em}
+.outsideTicker span{padding-right:46px}
+
+/* contact */
+.contactHero{display:grid;grid-template-columns:1.35fr .65fr;gap:70px;align-items:end}
+.contactHero h3{font-size:clamp(68px,9vw,132px);line-height:.86;letter-spacing:-.075em;font-weight:500;margin:0}
+.contactDetails{border-top:1px solid var(--text);padding-top:14px}
+.contactDetails .microLabel{margin-bottom:28px}
+.contactDetails a{display:flex;justify-content:space-between;gap:20px;border-bottom:1px solid var(--line);padding:14px 0;font-size:13px}
+.contactDetails p:last-child{font-size:12px;color:var(--muted);margin:16px 0 0}
+.homeFooter{border-top:1px solid var(--line);padding:20px 0 34px;display:flex;justify-content:space-between;color:var(--muted);font-size:10px}
+
+/* project pages */
+.projectHero{padding:70px 0 48px}
+.back{display:inline-block;color:var(--muted);font-size:12px;margin-bottom:68px}
+.projectHeroGrid{display:grid;grid-template-columns:1.08fr .92fr;gap:78px;align-items:end}
+.projectHero h1{font-size:clamp(58px,7.5vw,108px);line-height:.89;letter-spacing:-.065em;font-weight:500;margin:12px 0 0}
+.projectIntroWrap{max-width:620px}
+.projectIntro{font-size:18px;line-height:1.58;color:#2c2d2c;margin:0 0 18px}
+.projectDeck{font-size:13px;line-height:1.65;color:var(--muted);margin:0}
+.projectLeadImage{height:min(74vh,790px);background:var(--surface);overflow:hidden;margin-bottom:36px}
+.projectLeadImage img{object-fit:contain;padding:32px;mix-blend-mode:multiply}
+.projectLeadImage.coverImage img{object-fit:cover;padding:0;mix-blend-mode:normal}
+.factsGrid{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line);margin-bottom:54px}
+.fact{min-height:120px;padding:20px}
+.fact:first-child{padding-left:0}
+.fact+.fact{border-left:1px solid var(--line)}
+.fact p{font-size:9px;text-transform:uppercase;letter-spacing:.12em;color:var(--muted);margin:0 0 25px}
+.fact h3{font-size:15px;font-weight:500;line-height:1.4;margin:0}
+.projectSkills{display:grid;grid-template-columns:170px 1fr;gap:30px;padding:0 0 95px}
+.projectSkills>div{display:flex;flex-wrap:wrap;gap:8px}
+.projectSkills span{border:1px solid var(--line);padding:8px 10px;border-radius:999px;font-size:10px;color:var(--muted)}
+.storyGrid{display:grid;grid-template-columns:repeat(3,1fr);gap:42px;margin-bottom:110px}
+.storyBlock{border-top:1px solid var(--line);padding-top:15px}
+.storyBlock h2{font-size:30px;letter-spacing:-.045em;font-weight:500;margin:18px 0}
+.storyBlock p:last-child{font-size:13px;line-height:1.7;color:var(--muted);margin:0}
+.evidenceIntro{display:grid;grid-template-columns:.7fr 1.3fr;gap:80px;border-top:1px solid var(--line);padding-top:24px;margin-bottom:42px}
+.evidenceIntro h2{font-size:clamp(42px,5vw,68px);line-height:.95;letter-spacing:-.055em;font-weight:500;margin:11px 0 0}
+.evidenceIntro>p:last-child{font-size:13px;line-height:1.7;color:var(--muted);align-self:end;margin:0;max-width:560px}
+.detailGallery{display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:90px}
+.detailGallery figure{margin:0;background:var(--surface);padding:16px}
+.detailGallery .galleryWide{grid-column:1/-1}
+.galleryImage{height:420px;overflow:hidden;background:#fff}
+.galleryWide .galleryImage{height:650px}
+.galleryImage img{object-fit:contain;mix-blend-mode:multiply;padding:12px}
+.galleryImage.cover img{object-fit:cover;mix-blend-mode:normal;padding:0}
+.detailGallery figcaption{display:grid;grid-template-columns:34px 1fr;gap:10px;border-top:1px solid var(--line);padding-top:11px;margin-top:12px;font-size:10px;line-height:1.45;color:var(--muted)}
+.detailGallery figcaption span{color:#aaa}
+.modelReady{border-top:1px solid var(--line);border-bottom:1px solid var(--line);padding:28px 0;display:grid;grid-template-columns:1fr 1fr;gap:50px;margin-bottom:90px}
+.modelReady h2{font-size:44px;font-weight:500;letter-spacing:-.05em;margin:10px 0}
+.modelReady>p{font-size:13px;line-height:1.65;color:var(--muted);max-width:560px;margin:0}
+.projectFooter{border-top:1px solid var(--line);padding:25px 0 42px;display:flex;justify-content:space-between;color:var(--muted);font-size:11px}
+
+@media(max-width:980px){
+  .shell{width:min(calc(100% - 36px),var(--max))}
+  .homeHero{grid-template-columns:1fr .8fr;gap:40px}
+  .heroPortrait{height:600px}
+  .experienceCards{grid-template-columns:1fr}
+  .projectRow{grid-template-columns:46px 220px 1fr 25px}
+  .skillsCapabilityGrid{grid-template-columns:1fr 1fr}
+  .outsideStage{grid-template-columns:1fr}
+  .outsideMusicHero{height:620px}
+  .outsideSide{grid-template-columns:1fr 1fr;grid-template-rows:auto auto}
+  .basketballCard{grid-column:1/-1}
+  .projectHeroGrid,.contactHero{grid-template-columns:1fr;gap:48px}
+  .factsGrid{grid-template-columns:1fr 1fr}
+  .fact:nth-child(3){border-left:0;border-top:1px solid var(--line)}
+  .fact:nth-child(4){border-top:1px solid var(--line)}
+  .storyGrid{grid-template-columns:1fr;gap:38px}
+  .evidenceIntro{grid-template-columns:1fr;gap:25px}
+}
+
+@media(max-width:720px){
+  .navInner{align-items:flex-start;flex-direction:column;padding:14px 0 12px;gap:10px}
+  .navLinks{width:100%;gap:20px}
+  .homeHero{grid-template-columns:1fr;min-height:auto;padding:78px 0 58px}
+  .homeHero h1{font-size:clamp(68px,20vw,105px)}
+  .heroPortrait{height:500px;order:2}
+  .sectionTitleRow,.outsideHeader{align-items:flex-start;flex-direction:column}
+  .sectionNote,.outsideHeader>p{text-align:left}
+  .experienceImage{height:330px}
+  .experienceInfo{grid-template-columns:1fr}
+  .experienceSummary{grid-column:auto}
+  .projectRow{grid-template-columns:32px 105px 1fr 18px;gap:11px}
+  .projectRowImage{height:105px}
+  .projectRowCopy h3{font-size:24px;margin:6px 0 7px}
+  .projectRowCopy>p:last-child{display:none}
+  .skillsCapabilityGrid{grid-template-columns:1fr}
+  .outsideMusicHero{height:530px}
+  .outsideSide{grid-template-columns:1fr}
+  .basketballCard{grid-column:auto}
+  .contactHero h3{font-size:clamp(62px,18vw,94px)}
+  .factsGrid{grid-template-columns:1fr}
+  .fact+.fact,.fact:nth-child(3),.fact:nth-child(4){border-left:0;border-top:1px solid var(--line);padding-left:0}
+  .projectSkills{grid-template-columns:1fr;gap:16px;padding-bottom:70px}
+  .detailGallery{grid-template-columns:1fr}
+  .detailGallery .galleryWide{grid-column:auto}
+  .galleryImage,.galleryWide .galleryImage{height:420px}
+  .projectLeadImage{height:55vh}
+  .modelReady{grid-template-columns:1fr}
+}
+
+@media(max-width:480px){
+  .shell{width:min(calc(100% - 28px),var(--max))}
+  .heroPortrait{height:430px}
+  .kiteLabMain{width:100%}
+  .kiteLabInset{display:none}
+  .kiteLogoBadge{width:165px;height:62px}
+  .projectRow{grid-template-columns:28px 1fr 18px}
+  .projectRowImage{grid-column:2;grid-row:1;height:170px}
+  .projectRowCopy{grid-column:2;grid-row:2}
+  .projectRowNumber{grid-row:1/3;align-self:start;padding-top:4px}
+  .projectArrow{grid-row:1/3;align-self:start;padding-top:4px}
+  .certificateEmpty{align-items:flex-start;flex-direction:column}
+  .outsideMusicHero figcaption{flex-direction:column;align-items:flex-start;gap:12px}
+  .galleryImage,.galleryWide .galleryImage{height:330px}
+}
+
+/* ===== V5 refinements ===== */
+.heroStatement{font-size:23px;line-height:1.44;letter-spacing:-.025em;color:#2f302f;max-width:720px;margin:0}
+.heroStatementSub{font-size:14px;line-height:1.62;color:var(--muted);max-width:680px;margin:14px 0 0}
+.heroTags span:first-child{background:#111214;color:#f6f6f1;border-color:#111214}
+
+/* richer experience section */
+.experienceStack{display:flex;flex-direction:column;border-top:1px solid var(--line)}
+.experienceFeature{display:grid;grid-template-columns:minmax(300px,.82fr) minmax(0,1.18fr);gap:0;border-bottom:1px solid var(--line);padding:28px 0;transition:padding .2s ease}
+.experienceFeature:hover{padding-left:8px}
+.experienceFeatureVisual{height:380px;background:var(--surface);position:relative;overflow:hidden}
+.experienceFeatureMain{width:100%;height:100%;object-fit:cover;transition:transform .5s ease}
+.experienceFeature:hover .experienceFeatureMain{transform:scale(1.018)}
+.experienceFeatureVisual.trajekt:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 50%,rgba(0,0,0,.58))}
+.experienceFeatureWordmark{position:absolute;z-index:2;left:22px;bottom:18px;color:#fff;font-size:16px;font-weight:800;letter-spacing:.18em}
+.experienceFeatureVisual.kite .experienceFeatureMain{width:70%;object-position:center}
+.experienceFeatureInset{position:absolute;right:18px;bottom:18px;width:40%;height:48%;object-fit:cover;border:7px solid var(--bg)}
+.experienceFeatureLogo{position:absolute;right:18px;top:18px;width:205px;height:76px;background:#fff;padding:13px 16px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.experienceFeatureLogo img{object-fit:contain}
+.experienceFeatureVisual.utbiome{background:#fff;display:flex;align-items:center;justify-content:center;padding:44px}
+.experienceFeatureVisual.utbiome .experienceFeatureMain{object-fit:contain}
+.experienceFeatureCopy{padding:6px 0 6px 42px;display:flex;flex-direction:column;min-width:0}
+.experienceFeatureHeader{display:flex;justify-content:space-between;gap:32px;border-bottom:1px solid var(--line);padding-bottom:18px}
+.experienceDate{font-size:16px;letter-spacing:.035em;font-weight:650;color:var(--accent);margin:0 0 24px;text-transform:uppercase}
+.experienceFeatureCopy h3{font-size:clamp(34px,3.2vw,48px);line-height:.95;letter-spacing:-.052em;font-weight:520;margin:0 0 10px}
+.experienceCompany{font-size:19px;line-height:1.25;font-weight:550;margin:0 0 6px}
+.experienceLocation{font-size:11px;color:var(--muted);margin:0}
+.experienceOpen{font-size:26px;color:var(--muted)}
+.experienceLead{font-size:16px;line-height:1.58;letter-spacing:-.01em;max-width:760px;margin:24px 0 16px}
+.experienceHighlights{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:1fr 1fr;gap:0 26px}
+.experienceHighlights li{position:relative;padding:12px 0 12px 18px;border-top:1px solid var(--line);font-size:12px;line-height:1.55;color:var(--muted)}
+.experienceHighlights li:before{content:"↳";position:absolute;left:0;color:var(--text)}
+.experienceMore{font-size:11px;margin:auto 0 0;padding-top:19px;text-transform:uppercase;letter-spacing:.1em;color:var(--text)}
+
+/* project pages — title, image, overview, then highlighted facts */
+.projectTitleHero{padding:70px 0 42px}
+.projectTitleHero .back{margin-bottom:58px}
+.projectTitleHero h1{font-size:clamp(66px,9vw,132px);line-height:.85;letter-spacing:-.072em;font-weight:500;max-width:1180px;margin:15px 0 0}
+.projectLeadImage{height:min(76vh,820px);margin-bottom:0}
+.projectOverview{display:grid;grid-template-columns:.72fr 1.28fr;gap:80px;padding:64px 0 58px;border-bottom:1px solid var(--line)}
+.projectOverview h2{font-size:clamp(40px,4.2vw,64px);line-height:.95;letter-spacing:-.055em;font-weight:500;margin:12px 0 0}
+.projectOverviewCopy{max-width:760px}
+.projectOverview .projectIntro{font-size:21px;line-height:1.5;color:#242524;margin:0 0 20px;letter-spacing:-.018em}
+.projectOverview .projectDeck{font-size:14px;line-height:1.7;color:var(--muted);margin:0;max-width:710px}
+.factsGridHighlight{margin-top:0;margin-bottom:46px;border-top:0;background:#111214;color:#f4f4ef}
+.factsGridHighlight .fact{min-height:150px;padding:24px}
+.factsGridHighlight .fact:first-child{padding-left:24px}
+.factsGridHighlight .fact+.fact{border-left:1px solid #333538}
+.factsGridHighlight .fact p{color:#949691;font-size:10px;margin-bottom:34px}
+.factsGridHighlight .fact h3{font-size:21px;line-height:1.28;letter-spacing:-.025em;font-weight:520}
+.projectSkills{padding:6px 0 90px}
+.projectSkills span{font-size:11px;padding:9px 12px;color:#5d5e59;background:#efefe9}
+.storyGrid{margin-bottom:100px}
+.storyBlock h2{font-size:32px}
+.storyBlock p:last-child{font-size:14px;line-height:1.72}
+.processSection{border-top:1px solid var(--line);padding-top:28px;margin-bottom:52px}
+.processHeading{display:grid;grid-template-columns:.72fr 1.28fr;gap:80px;margin-bottom:44px}
+.processHeading h2{font-size:clamp(42px,5vw,72px);line-height:.94;letter-spacing:-.06em;font-weight:500;margin:12px 0 0}
+.processHeading>p:last-child{font-size:14px;line-height:1.7;color:var(--muted);align-self:end;max-width:620px;margin:0}
+.processStrip{display:grid;grid-template-columns:repeat(6,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.processStep{min-height:118px;padding:16px 14px;display:flex;flex-direction:column;justify-content:space-between}
+.processStep+.processStep{border-left:1px solid var(--line)}
+.processStep span{font-size:9px;letter-spacing:.12em;color:var(--muted)}
+.processStep strong{font-size:13px;line-height:1.35;font-weight:520}
+.detailGallery figcaption{font-size:11px}
+
+/* experience detail pages */
+.experiencePageHero{padding:70px 0 42px}
+.experiencePageHero .back{margin-bottom:58px}
+.experiencePageTopline{display:flex;align-items:end;justify-content:space-between;gap:30px}
+.experiencePageDate{font-size:18px;letter-spacing:.035em;font-weight:650;color:var(--accent);margin:0;text-transform:uppercase}
+.experiencePageHero h1{font-size:clamp(66px,9vw,132px);line-height:.85;letter-spacing:-.072em;font-weight:500;max-width:1180px;margin:18px 0 22px}
+.experiencePageCompanyRow{display:flex;justify-content:space-between;align-items:end;gap:40px;border-top:1px solid var(--line);padding-top:16px}
+.experiencePageCompanyRow h2{font-size:30px;letter-spacing:-.04em;font-weight:520;margin:0}
+.experiencePageCompanyRow p{font-size:12px;color:var(--muted);margin:0}
+.experiencePageHeroImage{height:min(70vh,760px);background:#e8e8e2;position:relative;overflow:hidden}
+.experiencePageHeroImage img{object-fit:cover}
+.experiencePageHeroImage.contain{background:#fff;padding:70px}
+.experiencePageHeroImage.contain>img{object-fit:contain}
+.experiencePageLogo{position:absolute;top:22px;right:22px;width:220px;height:82px;background:#fff;padding:15px 18px;box-shadow:0 10px 28px rgba(0,0,0,.08)}
+.experiencePageLogo img{object-fit:contain}
+.experienceOverview{display:grid;grid-template-columns:.72fr 1.28fr;gap:80px;padding:65px 0 58px;border-bottom:1px solid var(--line)}
+.experienceOverview h2{font-size:clamp(40px,4.5vw,66px);line-height:.95;letter-spacing:-.055em;font-weight:500;margin:12px 0 0}
+.experienceOverviewLead{font-size:21px;line-height:1.52;letter-spacing:-.018em;margin:0 0 18px;max-width:760px}
+.experienceOverviewSub{font-size:14px;line-height:1.72;color:var(--muted);margin:0;max-width:760px}
+.experienceMetrics{display:grid;grid-template-columns:repeat(4,1fr);background:#111214;color:#f4f4ef;margin-bottom:72px}
+.experienceMetrics article{padding:22px;min-height:145px}
+.experienceMetrics article+article{border-left:1px solid #333538}
+.experienceMetrics p{font-size:9px;text-transform:uppercase;letter-spacing:.14em;color:#92948f;margin:0 0 34px}
+.experienceMetrics h3{font-size:20px;line-height:1.3;letter-spacing:-.025em;font-weight:520;margin:0}
+.experienceResponsibilities{margin-bottom:82px;border-top:1px solid var(--line)}
+.experienceResponsibilities article{display:grid;grid-template-columns:62px .75fr 1.25fr;border-bottom:1px solid var(--line);padding:26px 0}
+.experienceResponsibilities article>span{font-size:10px;color:var(--muted);letter-spacing:.12em;padding-top:5px}
+.experienceResponsibilities article>div{grid-column:2/4;display:grid;grid-template-columns:.75fr 1.25fr;gap:45px}
+.experienceResponsibilities h3{font-size:27px;line-height:1.04;letter-spacing:-.045em;font-weight:520;margin:0}
+.experienceResponsibilities p{font-size:14px;line-height:1.72;color:var(--muted);margin:0;max-width:690px}
+.experienceGallery{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:90px}
+.experienceGallery figure{margin:0;background:var(--surface);padding:14px}
+.experienceGallery figure>div{height:300px;background:#ddd;overflow:hidden}
+.experienceGallery figure>div.contain{background:#fff;padding:25px}
+.experienceGallery figure>div.contain img{object-fit:contain}
+.experienceGallery figcaption{font-size:10px;line-height:1.45;color:var(--muted);border-top:1px solid var(--line);padding-top:10px;margin-top:10px}
+
+@media(max-width:980px){
+  .experienceFeature{grid-template-columns:1fr}
+  .experienceFeatureCopy{padding:28px 0 4px}
+  .experienceHighlights{grid-template-columns:1fr 1fr}
+  .projectOverview,.processHeading,.experienceOverview{grid-template-columns:1fr;gap:26px}
+  .processStrip{grid-template-columns:repeat(3,1fr)}
+  .processStep:nth-child(4){border-left:0;border-top:1px solid var(--line)}
+  .processStep:nth-child(5),.processStep:nth-child(6){border-top:1px solid var(--line)}
+  .experienceMetrics{grid-template-columns:1fr 1fr}
+  .experienceMetrics article:nth-child(3){border-left:0;border-top:1px solid #333538}
+  .experienceMetrics article:nth-child(4){border-top:1px solid #333538}
+  .experienceResponsibilities article>div{grid-template-columns:1fr;gap:14px}
+}
+
+@media(max-width:720px){
+  .heroStatement{font-size:20px}
+  .experienceFeatureVisual{height:330px}
+  .experienceFeatureCopy h3{font-size:38px}
+  .experienceDate{font-size:14px;margin-bottom:16px}
+  .experienceHighlights{grid-template-columns:1fr}
+  .projectTitleHero h1,.experiencePageHero h1{font-size:clamp(58px,16vw,92px)}
+  .projectOverview{padding:46px 0}
+  .factsGridHighlight{grid-template-columns:1fr}
+  .factsGridHighlight .fact+.fact{border-left:0;border-top:1px solid #333538}
+  .factsGridHighlight .fact{min-height:auto}
+  .processStrip{grid-template-columns:1fr 1fr}
+  .processStep:nth-child(odd){border-left:0}
+  .processStep:nth-child(n+3){border-top:1px solid var(--line)}
+  .experiencePageTopline,.experiencePageCompanyRow{align-items:flex-start;flex-direction:column}
+  .experiencePageDate{font-size:15px}
+  .experiencePageHeroImage{height:480px}
+  .experiencePageHeroImage.contain{padding:34px}
+  .experienceMetrics{grid-template-columns:1fr}
+  .experienceMetrics article+article,.experienceMetrics article:nth-child(3),.experienceMetrics article:nth-child(4){border-left:0;border-top:1px solid #333538}
+  .experienceResponsibilities article{grid-template-columns:40px 1fr}
+  .experienceResponsibilities article>div{grid-column:2;grid-template-columns:1fr}
+  .experienceGallery{grid-template-columns:1fr}
+}
+
+/* v6 — stronger hierarchy + visual skill system */
+:root{
+  --muted:#5e5f5a;
+  --line:#c7c7bf;
+}
+.microLabel,.eyebrow{font-size:11px;color:#666762;font-weight:650}
+.sectionNote{font-size:13.5px;line-height:1.62;color:#565752;max-width:370px}
+.heroIdentity{font-size:15px;font-weight:560;color:#292a29}
+.heroStatementSub{font-size:15px;color:#545550}
+.heroTags span{font-size:10px;font-weight:650;color:#555650;padding:9px 12px}
+.navLinks a{font-size:13px;color:#51524e}
+
+/* Experience: make role / organization / date immediately scannable */
+.experienceDate{font-size:18px;line-height:1.1;letter-spacing:.045em;font-weight:760;color:var(--accent);margin-bottom:22px}
+.experienceFeatureCopy h3{font-size:clamp(38px,3.55vw,54px);font-weight:560;color:#0d0e10;margin-bottom:12px}
+.experienceCompany{font-size:23px;line-height:1.18;font-weight:680;color:#242523;margin-bottom:7px}
+.experienceLocation{font-size:13px;font-weight:540;color:#61625d}
+.experienceLead{font-size:17px;line-height:1.58;color:#292a28;margin-top:25px}
+.experienceHighlights li{font-size:13.5px;line-height:1.58;color:#555651;padding-top:13px;padding-bottom:13px}
+.experienceMore{font-size:12px;font-weight:700;color:#1c1d1c}
+.experienceOpen{font-size:30px;color:#3a3b38}
+
+/* Project listing hierarchy */
+.projectRowNumber,.projectYear{font-size:11px;font-weight:700;letter-spacing:.115em;color:#656660}
+.projectRowCopy>p:last-child{font-size:13.5px;line-height:1.6;color:#555651}
+.projectArrow{font-size:20px}
+
+/* Skills become icon-led rather than label-led */
+.skillsCapabilityGrid{gap:12px;background:transparent;border:0}
+.skillsCapabilityGrid article{min-height:300px;padding:28px;border:1px solid var(--line);background:#f9f9f5;border-radius:2px;transition:transform .2s ease,box-shadow .2s ease,border-color .2s ease}
+.skillsCapabilityGrid article:hover{transform:translateY(-3px);border-color:#a9aaa2;box-shadow:0 14px 34px rgba(17,18,20,.055)}
+.skillIconWrap{width:60px;height:60px;display:flex;align-items:center;justify-content:center;color:#161719;margin-bottom:45px}
+.skillIconWrap.brandIcon{width:146px;height:60px;justify-content:flex-start;color:#d1242f}
+.skillSvg{width:48px;height:48px}
+.solidworksMark{display:flex;align-items:center;gap:7px;color:#d1242f}
+.solidworksMark svg{width:48px;height:40px;flex:0 0 auto}
+.solidworksMark span{font-size:12px;line-height:1;font-weight:800;letter-spacing:-.02em}
+.skillsCapabilityGrid h3{font-size:31px;line-height:1.02;letter-spacing:-.047em;font-weight:590;margin:auto 0 18px;color:#151615}
+.skillsCapabilityGrid article>p:last-child{font-size:13.5px;line-height:1.68;color:#555651}
+.skillsCapabilityGrid .skillsEvidence{background:#171819;border-color:#171819;color:#f4f4ef}
+.skillsCapabilityGrid .skillsEvidence h3{color:#fff}
+.skillsCapabilityGrid .skillsEvidence .skillIconWrap{color:#f5f5ef}
+.skillsCapabilityGrid .skillsEvidence p:last-child{color:#b8b9b3}
+
+/* Project detail facts + skill chips */
+.fact p{font-size:10.5px;font-weight:700;color:#666762}
+.fact h3{font-size:17px;font-weight:580;color:#232422}
+.projectSkills span{font-size:11.5px;font-weight:600;color:#3f403d;background:#ededE7;border-color:#cdcdc5;padding:10px 13px}
+.storyBlock p:last-child,.projectDeck{font-size:14px;color:#555651}
+.detailGallery figcaption{font-size:11.5px;color:#565752}
+
+/* Experience detail pages */
+.experiencePageDate{font-size:20px;font-weight:760}
+.experiencePageCompanyRow h2{font-size:34px;font-weight:600}
+.experiencePageCompanyRow p{font-size:13.5px;color:#565752}
+.experienceMetrics p{font-size:10.5px;font-weight:700;color:#aeb0aa}
+.experienceMetrics h3{font-size:22px;font-weight:560}
+.experienceResponsibilities h3{font-size:30px;font-weight:560}
+.experienceResponsibilities p{font-size:14.5px;color:#555651}
+
+@media(max-width:720px){
+  .experienceDate{font-size:15px}
+  .experienceCompany{font-size:20px}
+  .experienceLead{font-size:15.5px}
+  .experienceHighlights li{font-size:13px}
+  .skillsCapabilityGrid article{min-height:265px}
+  .skillIconWrap{margin-bottom:32px}
+}
+
+/* V7 — experience works like projects: concise outside, detailed inside */
+.experienceIndex{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:16px}
+.experienceCard{display:flex;flex-direction:column;border:1px solid var(--line);background:#fafaf6;color:inherit;text-decoration:none;min-width:0;transition:transform .25s ease,border-color .25s ease,box-shadow .25s ease}
+.experienceCard:hover{transform:translateY(-4px);border-color:#8f908a;box-shadow:0 14px 34px rgba(24,25,23,.06)}
+.experienceCardVisual{height:290px;position:relative;overflow:hidden;background:#e8e8e2}
+.experienceCardVisual>img{width:100%;height:100%;object-fit:cover;transition:transform .45s ease}
+.experienceCard:hover .experienceCardVisual>img{transform:scale(1.018)}
+.experienceCardVisual.trajekt:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 58%,rgba(0,0,0,.58))}
+.experienceCardWordmark{position:absolute;z-index:2;left:20px;bottom:17px;color:#fff;font-size:15px;font-weight:800;letter-spacing:.18em}
+.experienceCardVisual.kite>img{object-position:center}
+.experienceCardLogo{position:absolute;right:15px;top:15px;width:170px;height:62px;background:#fff;padding:11px 14px;box-shadow:0 8px 24px rgba(0,0,0,.08)}
+.experienceCardLogo img{width:100%;height:100%;object-fit:contain}
+.experienceCardVisual.utbiome{background:#fff;padding:44px}
+.experienceCardVisual.utbiome>img{object-fit:contain}
+.experienceCardBody{padding:22px 22px 20px;display:flex;flex-direction:column;min-height:330px}
+.experienceCardTop{display:flex;justify-content:space-between;align-items:flex-start;gap:20px}
+.experienceCard .experienceDate{font-size:14px;font-weight:700;letter-spacing:.045em;margin:0 0 24px;color:var(--accent)}
+.experienceCard .experienceOpen{font-size:22px;line-height:1;color:#6a6c67;transition:transform .25s ease}
+.experienceCard:hover .experienceOpen{transform:translate(3px,-3px)}
+.experienceCard h3{font-size:clamp(29px,2.4vw,40px);line-height:.98;letter-spacing:-.05em;font-weight:540;margin:0 0 10px}
+.experienceCard .experienceCompany{font-size:20px;line-height:1.22;font-weight:650;margin:0 0 20px;color:#2d2e2b}
+.experienceCardSummary{font-size:14px;line-height:1.62;color:var(--muted);margin:0;max-width:34em}
+.experienceCardBottom{display:flex;justify-content:space-between;align-items:flex-end;gap:18px;border-top:1px solid var(--line);padding-top:16px;margin-top:auto}
+.experienceCardBottom span{font-size:11px;line-height:1.4;color:var(--muted)}
+.experienceCardBottom strong{font-size:10px;text-transform:uppercase;letter-spacing:.11em;font-weight:700;white-space:nowrap}
+@media(max-width:1000px){.experienceIndex{grid-template-columns:1fr 1fr}.experienceCard:last-child{grid-column:1/-1}.experienceCard:last-child .experienceCardVisual{height:250px}}
+@media(max-width:700px){.experienceIndex{grid-template-columns:1fr}.experienceCard:last-child{grid-column:auto}.experienceCardVisual{height:245px}.experienceCardBody{min-height:0}.experienceCard h3{font-size:34px}}
+
+
+/* V8 final polish — dark-panel contrast + concise personal positioning */
+.factsGridHighlight .fact h3{color:#f4f4ef!important}
+.factsGridHighlight .fact p{color:#aeb0aa!important}
+.experienceMetrics h3{color:#f4f4ef!important}
+.experienceMetrics p{color:#aeb0aa!important}
+.skillsCapabilityGrid .skillsEvidence h3{color:#fff!important}
+.skillsCapabilityGrid .skillsEvidence p:last-child{color:#c5c6c0!important}
+.contactDetails a{display:block;margin-bottom:10px}
+.heroStatement{max-width:650px}
+.heroStatementSub{max-width:620px}
+
+/* V9 hero copy */
+.heroQuote{margin:18px 0 0;max-width:760px;padding:0;border:0}
+.heroQuote p{font-size:23px;line-height:1.42;letter-spacing:-.025em;color:#2d2f2d;margin:0;font-weight:520}
+.heroQuote cite{display:block;margin-top:10px;font-size:12px;font-style:normal;letter-spacing:.08em;text-transform:uppercase;color:#777971}
+.interestLabel{margin:30px 0 0;font-size:11px;font-weight:700;letter-spacing:.13em;text-transform:uppercase;color:#5a5c57}
+.heroWelcome{max-width:660px;margin:18px 0 0;font-size:13px;line-height:1.65;color:#777971}
+.heroTags{margin-top:12px}
+@media(max-width:700px){.heroQuote p{font-size:20px}.interestLabel{margin-top:24px}.heroWelcome{font-size:12px}}
+
+/* V10 — balanced hero, section distinction, brand marks, richer outside-of-engineering */
+:root{
+  --orange:#f06a2a;
+}
+.heroDot{color:var(--orange)!important}
+.heroIdentity{font-size:15px;font-weight:650;letter-spacing:-.01em;color:#30312f;margin-bottom:22px}
+.heroQuote{margin-top:12px;max-width:720px}
+.heroQuote p{
+  font-family:"Iowan Old Style","Palatino Linotype","Book Antiqua",Palatino,Georgia,serif;
+  font-size:clamp(23px,2.05vw,31px);
+  line-height:1.32;
+  letter-spacing:-.018em;
+  font-weight:400;
+  font-style:italic;
+  color:#242522;
+}
+.heroQuote cite{margin-top:14px;font-size:10px;font-weight:700;letter-spacing:.14em;color:#7a7b75}
+.interestLabel{margin-top:42px}
+.heroTags{margin-top:16px}
+.heroWelcome{margin-top:23px;max-width:690px;color:#6e706a}
+.heroActions{margin-top:28px}
+
+/* subtle full-width section shifts while keeping the same restrained palette */
+.contentSection,.contactSection{position:relative;isolation:isolate;scroll-margin-top:68px}
+#experience{
+  background:linear-gradient(180deg,#f0f2ee 0%,#f3f3ee 100%);
+  box-shadow:0 0 0 100vmax #f0f2ee;
+  clip-path:inset(0 -100vmax);
+}
+#projects{
+  background:linear-gradient(180deg,#f8f8f4 0%,#f5f5f1 100%);
+  box-shadow:0 0 0 100vmax #f8f8f4;
+  clip-path:inset(0 -100vmax);
+}
+#certificates{
+  background:linear-gradient(180deg,#eceeea 0%,#f1f1ec 100%);
+  box-shadow:0 0 0 100vmax #eceeea;
+  clip-path:inset(0 -100vmax);
+}
+#skills{
+  background:linear-gradient(180deg,#f7f3ec 0%,#f6f6f1 100%);
+  box-shadow:0 0 0 100vmax #f7f3ec;
+  clip-path:inset(0 -100vmax);
+}
+#contact{
+  background:linear-gradient(180deg,#f5f5f1 0%,#eceee9 100%);
+  box-shadow:0 0 0 100vmax #eceee9;
+  clip-path:inset(0 -100vmax);
+}
+
+/* skill brand marks */
+.skillBrandRow{min-height:66px;display:flex;align-items:center;gap:18px;margin-bottom:35px;flex-wrap:wrap}
+.brandMark{display:flex;align-items:center;gap:7px;white-space:nowrap}
+.brandMark svg{display:block;flex:0 0 auto}
+.brandMark span{font-size:10px;font-weight:800;letter-spacing:.02em;color:inherit}
+.solidworksMark{color:#d1242f}
+.solidworksMark svg{width:43px;height:36px}
+.fusionMark{color:#ed7a18}
+.fusionMark svg{width:36px;height:36px}
+.pythonMark{color:#3776ab}
+.pythonMark svg{width:37px;height:37px}
+.pythonMark span{color:#2f617f}
+.matlabMark{color:#d95f31}
+.matlabMark svg{width:39px;height:39px}
+.matlabMark span{color:#bc532f}
+.dataBrands{gap:24px}
+
+/* outside of engineering: keep black/orange, add the meaning without clutter */
+.outsideImpact{
+  margin-top:-22px;
+  margin-bottom:38px;
+  max-width:980px;
+  font-family:"Iowan Old Style","Palatino Linotype",Georgia,serif;
+  font-size:clamp(19px,2vw,28px);
+  line-height:1.38;
+  letter-spacing:-.018em;
+  color:#d6d6d0;
+}
+.outsideMusicHero{isolation:isolate}
+.bandNote{
+  position:absolute;
+  z-index:3;
+  left:22px;
+  top:22px;
+  width:min(300px,calc(100% - 44px));
+  padding:14px 15px;
+  background:rgba(11,12,13,.68);
+  border:1px solid rgba(255,255,255,.12);
+  backdrop-filter:blur(9px);
+}
+.bandNote span{font-size:9px;letter-spacing:.16em;font-weight:750;color:#ff8a46}
+.bandNote p{font-size:11px;line-height:1.55;color:#d5d5d0;margin:7px 0 0}
+.iconCard{position:relative;overflow:hidden}
+.outsideMiniIcon{position:absolute;right:18px;top:18px;color:#f2f2ed;opacity:.72}
+.outsideMiniIcon svg{width:48px;height:48px}
+.iconCard .microLabel{padding-right:60px}
+
+/* resume download is a real interaction, not just text */
+.contactDetails .resumeDownload{
+  margin-top:12px;
+  padding:15px 14px;
+  border:1px solid #222320;
+  background:#171819;
+  color:#f5f5ef;
+  display:flex;
+  justify-content:space-between;
+  align-items:center;
+  font-weight:700;
+  transition:transform .18s ease,background .18s ease;
+}
+.contactDetails .resumeDownload:hover{transform:translateY(-2px);background:#2a2b2b}
+.contactDetails .resumeDownload span{color:#ff8a46}
+
+@media(max-width:980px){
+  .heroQuote p{font-size:25px}
+  .outsideImpact{margin-top:-12px}
+}
+@media(max-width:700px){
+  .heroQuote p{font-size:22px;line-height:1.4}
+  .interestLabel{margin-top:34px}
+  .skillBrandRow{margin-bottom:28px;gap:14px}
+  .outsideImpact{font-size:20px;margin-bottom:30px}
+  .bandNote{width:calc(100% - 36px);left:18px;top:18px}
+}
+
+
+/* ===== V11 Outside of Engineering balance fixes ===== */
+.outsideHeader{align-items:flex-start;margin-bottom:26px}
+.outsideHeader>div{width:100%}
+.outsideHeader h2{font-size:clamp(34px,3.8vw,54px);line-height:.95;letter-spacing:-.055em;font-weight:520;margin:10px 0 0}
+.outsideHeader>p{display:none}
+.outsideImpact{font-size:14px;line-height:1.7;max-width:690px;color:#c5c6c1;margin:0 auto 34px 0}
+.outsideMusicHero{height:auto;overflow:visible;background:transparent;display:flex;flex-direction:column}
+.outsideMusicHero>img{height:580px;object-fit:cover;object-position:center 31%;display:block;background:#050505}
+.outsideMusicHero:after{display:none}
+.outsideMusicHero figcaption{position:relative;inset:auto;order:2;padding:16px 0 8px;display:flex;justify-content:space-between;align-items:end;border-bottom:1px solid #2e3031}
+.outsideMusicHero figcaption span{font-size:9px;letter-spacing:.16em;color:#92938f;text-transform:uppercase}
+.outsideMusicHero figcaption strong{font-size:clamp(28px,3vw,44px);line-height:.9;letter-spacing:-.055em;font-weight:540}
+.bandNote{display:none !important}
+.bandCaption{order:3;padding:13px 0 2px;max-width:620px}
+.bandCaption span{display:block;color:#ff7a36;font-size:9px;font-weight:750;letter-spacing:.12em;text-transform:uppercase;margin-bottom:7px}
+.bandCaption p{font-size:11px;line-height:1.62;color:#a9aaa5;margin:0;max-width:580px}
+@media(max-width:720px){
+  .outsideImpact{font-size:13px;margin-bottom:26px}
+  .outsideMusicHero>img{height:500px}
+  .outsideMusicHero figcaption{flex-direction:row;align-items:end;gap:16px}
+}
+
+
+/* ===== V12 Outside alignment + concise activity details ===== */
+.outsideImpact{
+  width:min(calc(100% - 56px),var(--max));
+  max-width:var(--max);
+  margin:0 auto 34px;
+  padding:0;
+}
+.outsideImpact p{
+  max-width:760px;
+  margin:0;
+  font-size:14px;
+  line-height:1.7;
+  color:#c5c6c1;
+}
+.basketballCard .outsideDateLine{
+  font-size:12px;
+  line-height:1.4;
+  font-weight:650;
+  letter-spacing:.01em;
+  margin:0;
+  position:relative;
+  z-index:2;
+  color:#171819;
+}
+.outsideTextCard .outsideDateLine{
+  font-size:9px;
+  line-height:1.2;
+  letter-spacing:.12em;
+  text-transform:uppercase;
+  color:#ff7a36;
+  margin:12px 0 0;
+}
+@media(max-width:720px){
+  .outsideImpact{width:min(calc(100% - 36px),var(--max));margin-bottom:26px}
+  .outsideImpact p{font-size:13px}
+}
